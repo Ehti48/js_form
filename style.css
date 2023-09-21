@@ -69,8 +69,9 @@ button{
     background-color: rgb(103, 183, 186);
     width: 100px;
     height: 35px;
+    padding: 10px 0;
     border-radius: 3px;
-    box-shadow: 0 3px 5px rgb(0, 0, 0);
+    box-shadow: 0 3px 4px rgb(0, 0, 0);
     font-size: 1rem;
     /* margin: 15px 130px; */
     font-weight: 600;
