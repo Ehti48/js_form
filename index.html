@@ -1,34 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Valid Signup</title>
     <link rel="stylesheet" href="/style.css">
 </head>
+
 <body>
-    <div class="box">
-        <h3>Signup</h3>
-        <p id="nameerr">Full Name</p>
-        <input id="myname" type="text" placeholder="Enter your Name">
-        <p id="emailerr">Email</p>
-        <input id="myemail" type="email" placeholder="example@12.com">
-        <p id="passerr">Password</p>
-        <input id="mypass" type="password" placeholder="Enter Password">
-        <p id="cpasserr">Confirm Password</p>
-        <input id="cmypass" type="password" placeholder="Enter Confirm Password">
-        <p id="doberr">DOB</p>
-        <input id="dob" type="date">
-        <div class="btn">
-        <button id="button" >Submit</button>
-    </div>
+    <div class="container">
+        <div class="box">
+            <h3>Signup</h3>
+            <p id="nameerr">Full Name</p>
+            <input id="myname" type="text" placeholder="Enter your Name">
+            <p id="emailerr">Email</p>
+            <input id="myemail" type="email" placeholder="example@12.com">
+         <div class="pass">
+            <div class="mypass">
+            <p id="passerr">Password</p>
+            <input id="mypass" type="password" placeholder="Enter Password">
+        </div>
+        <div class="cmypass">
+            <p id="cpasserr">Confirm Password</p>
+            <input id="cmypass" type="password" placeholder="Enter Confirm Password">
+        </div>
+        </div>
+            <p id="doberr">DOB</p>
+            <input id="dob" type="date">
+            <div class="btn">
+                <button id="button">Submit</button>
+            </div>
+        </div>
+
     </div>
 
     <script>
         // const popup = ()=>{
         //     alert("Email Has been Sent")
         // }
-    
+
         let name = document.getElementById("myname")
         let nameerr = document.getElementById("nameerr")
 
@@ -45,86 +56,98 @@
         let doberr = document.getElementById("doberr")
 
         let button = document.getElementById("button")
-    
-        button.addEventListener("click", ()=>{
 
-            let emailValid ="@"
+        button.addEventListener("click", () => {
 
-            if (name.value == "" || email.value == "" || pass.value == "" || cpass.value != pass.value || dob.value == ""){
-            
-            if(name.value == ""){
-                nameerr.innerHTML = "Please Enter the name"
-                nameerr.style.color = "red"
-            }else{ 
-                
-                name.innerHTML = ""
+            let emailValid = "@"
+
+            if (name.value == "" || email.value == "" || pass.value == "" || cpass.value != pass.value || dob.value == "") {
+
+                if (name.value == "") {
+                    nameerr.innerHTML = "Please Enter the name ⓘ"
+                    nameerr.style.color = "red"
+                    nameerr.style.fontSize = "12px"
+                } else {
+
+                    name.innerHTML = ""
+                }
+
+                if (email.value.match(emailValid)) {
+                    email.innerHTML = ""
+                } else {
+                    emailerr.innerHTML = "Please Enter the email ⓘ"
+                    emailerr.style.color = "red"
+                    emailerr.style.fontSize = "12px"
+                }
+
+                if (pass.value == "") {
+                    passerr.innerHTML = "Please Enter the password ⓘ"
+                    passerr.style.color = "red"
+                    passerr.style.fontSize = "12px"
+                } else {
+
+                    pass.innerHTML = ""
+                }
+
+
+                if (cpass.value == "") {
+                    cpasserr.innerHTML = "Please confirm the password ⓘ"
+                    cpasserr.style.color = "red"
+                    cpasserr.style.fontSize = "12px"
+                } else {
+
+                    pass.innerHTML = ""
+                }
+
+                if (cpass.value == pass.value) {
+                    cpass.innerHTML = ""
+                } else {
+
+                    cpasserr.innerHTML = "Confirm password is not match ⓘ"
+                    cpasserr.style.color = "red"
+                    cpasserr.style.fontSize = "12px"
+                }
+
+                if (dob.value == "") {
+                    doberr.innerHTML = "Please Enter the dob ⓘ"
+                    doberr.style.color = "red"
+                    doberr.style.fontSize = "12px"
+                } else {
+                    dob.innerHTML = ""
+                }
+            } else {
+                alert("Signup Successfully")
             }
 
-            if(email.value.match(emailValid)){
-                email.innerHTML = ""
-            }else{
-                emailerr.innerHTML = "Please Enter the email"
-                emailerr.style.color = "red"
-            }
-
-            if(pass.value == ""){
-                passerr.innerHTML = "Please Enter the password"
-                passerr.style.color = "red"
-            }else{
-              
-                pass.innerHTML = ""
-            }
-
-            
-            if(cpass.value == ""){
-                cpasserr.innerHTML = "Please confirm the password"
-                cpasserr.style.color = "red"
-            }else{
-              
-                pass.innerHTML = ""
-            }
-
-            if(cpass.value == pass.value){
-                cpass.innerHTML = ""
-            }else{
-               
-                cpasserr.innerHTML = "Confirm password is not match"
-                cpasserr.style.color = "red"
-            }
-
-            if(dob.value == ""){
-                doberr.innerHTML = "Please Enter the dob"
-                doberr.style.color = "red"
-            }else{
-                dob.innerHTML = ""
-            }
-        } else{
-            alert("Signup Successfully")
-        }
-            
         })
 
-        name.addEventListener("focus", ()=>{
+        name.addEventListener("focus", () => {
             nameerr.innerHTML = "Full Name"
             nameerr.style.color = "black"
+            nameerr.style.fontSize = "15px"
         })
-        email.addEventListener("focus", ()=>{
+        email.addEventListener("focus", () => {
             emailerr.innerHTML = "Email"
             emailerr.style.color = "black"
+            emailerr.style.fontSize = "15px"
         })
-        pass.addEventListener("focus", ()=>{
+        pass.addEventListener("focus", () => {
             passerr.innerHTML = "Password"
             passerr.style.color = "black"
+            passerr.style.fontSize = "15px"
         })
-        cpass.addEventListener("focus", ()=>{
+        cpass.addEventListener("focus", () => {
             cpasserr.innerHTML = "Confirm Password"
             cpasserr.style.color = "black"
+            cpasserr.style.fontSize = "15px"
         })
-        dob.addEventListener("focus", ()=>{
+        dob.addEventListener("focus", () => {
             doberr.innerHTML = "DOB"
             doberr.style.color = "black"
+            doberr.style.fontSize = "15px"
         })
-   
-        </script>
+
+    </script>
 </body>
+
 </html>
